@@ -1,0 +1,28 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Traceback (most recent call last):
+  File "/root/smolvla_project/test_simulation_fixed.py", line 285, in <module>
+    test_fixed_control()
+  File "/root/smolvla_project/test_simulation_fixed.py", line 184, in test_fixed_control
+    obs = env.reset()
+  File "/root/smolvla_project/test_simulation_fixed.py", line 43, in reset
+    self.action_scale = action_scale
+NameError: name 'action_scale' is not defined
+============================================================
+SmolVLA 闭环控制测试
+============================================================
+
+创建模拟环境...
+✅ 环境创建成功
+
+加载SmolVLA模型...
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Reducing the number of VLM layers to 16 ...
+✅ 模型加载完成 (450.0M参数)
+
+
+============================================================
+Episode 1/3
+============================================================
+
+
+❌ 测试出错: name 'action_scale' is not defined

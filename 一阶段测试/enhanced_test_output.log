@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/root/smolvla_project/test_simulation_enhanced.py", line 298, in <module>
+    test_closed_loop_control()
+NameError: name 'test_closed_loop_control' is not defined
+
+
+❌ 测试出错: name 'test_closed_loop_control' is not defined
