@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/root/smolvla_project/05-smolvla_use_libero.py", line 21, in <module>
+    from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
+  File "/root/smolvla_project/lerobot/src/lerobot/policies/__init__.py", line 20, in <module>
+    from .smolvla.processor_smolvla import SmolVLANewLineProcessor
+  File "/root/smolvla_project/lerobot/src/lerobot/policies/smolvla/processor_smolvla.py", line 23, in <module>
+    from lerobot.processor import (
+  File "/root/smolvla_project/lerobot/src/lerobot/processor/__init__.py", line 43, in <module>
+    from .hil_processor import (
+  File "/root/smolvla_project/lerobot/src/lerobot/processor/hil_processor.py", line 28, in <module>
+    from lerobot.teleoperators.teleoperator import Teleoperator
+  File "/root/smolvla_project/lerobot/src/lerobot/teleoperators/__init__.py", line 18, in <module>
+    from .teleoperator import Teleoperator
+  File "/root/smolvla_project/lerobot/src/lerobot/teleoperators/teleoperator.py", line 22, in <module>
+    from lerobot.motors.motors_bus import MotorCalibration
+  File "/root/smolvla_project/lerobot/src/lerobot/motors/__init__.py", line 17, in <module>
+    from .motors_bus import Motor, MotorCalibration, MotorNormMode, MotorsBus
+  File "/root/smolvla_project/lerobot/src/lerobot/motors/motors_bus.py", line 32, in <module>
+    from deepdiff import DeepDiff
+ModuleNotFoundError: No module named 'deepdiff'
