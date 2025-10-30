@@ -8,7 +8,7 @@ Outputs:
 """
 
 import sys
-sys.path.insert(0, '/root/smolvla_project/lerobot/src')
+sys.path.insert(0, '/root/lerobot_project/lerobot/src')
 import torch
 import numpy as np
 import matplotlib
@@ -32,7 +32,7 @@ device = "cuda"
 
 # 1. Load data
 print("[1/5] Loading data...")
-df = pq.read_table(Path("/root/smolvla_project/datasets/lerobot_pusht/data/chunk-000/file-000.parquet")).to_pandas()
+df = pq.read_table(Path("/root/lerobot_project/datasets/lerobot_pusht/data/chunk-000/file-000.parquet")).to_pandas()
 print(f"   OK: {len(df)} samples")
 
 # 2. Load model
@@ -165,7 +165,7 @@ plt.suptitle('SmolVLA Dataset Test - Visualization Report', fontsize=16, fontwei
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 
 # Save figure
-output_file = '/root/smolvla_project/visualization_result.png'
+output_file = '/root/lerobot_project/visualization_result.png'
 plt.savefig(output_file, dpi=150, bbox_inches='tight')
 print(f"   OK: Visualization saved to {output_file}")
 
