@@ -1,0 +1,26 @@
+# 虚拟环境
+smolvla_env/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 日志文件
+*.log
+
+# 数据集文件（parquet 和 视频）
+*.parquet
+*.mp4
+
+# 测试输出图片
+*.png
+*.jpg
+*.jpeg
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
