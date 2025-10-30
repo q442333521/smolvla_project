@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SmolVLA Dataset Test - With Visualization
+SmolVLA Dataset Test - With Visualization (完整版)
 """
 
 import sys
@@ -21,7 +21,7 @@ plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['axes.unicode_minus'] = False
 
 print("\n" + "="*60)
-print("SmolVLA Visualization Test")
+print("SmolVLA Visualization Test - Complete")
 print("="*60 + "\n")
 
 device = "cuda"
@@ -42,7 +42,7 @@ tokenizer = AutoTokenizer.from_pretrained("HuggingFaceTB/SmolVLM-Instruct")
 print("   OK")
 
 # 检查模型期望的图像尺寸
-expected_size = (256, 256)  # 根据错误信息
+expected_size = (256, 256)
 print(f"   Model expects images of size: {expected_size}")
 
 # 3. 推理测试
@@ -59,27 +59,32 @@ with torch.no_grad():
         image = sample['observation.image'].unsqueeze(0).to(device).float() / 255.0
         image = F.interpolate(image, size=expected_size, mode='bilinear', align_corners=False)
         
-        # 准备文本输入并 tokenize
+        # 准备文本输入并 tokenize (tokenizer会返回input_ids和attention_mask)
         text = sample['task']
         text_tokens = tokenizer(text, return_tensors="pt")
         lang_tokens = text_tokens['input_ids'].to(device)
+        lang_attention_mask = text_tokens["attention_mask"].to(device).bool()
         
-        # 构建批次
+        # 构建批次 - 包含所有必需的键
         batch = {
             'observation.images.camera1': image,
             'observation.images.camera2': image,
             'observation.images.camera3': image,
             'observation.state': sample['observation.state'].unsqueeze(0).to(device),
-            'observation.language.tokens': lang_tokens
+            'observation.language.tokens': lang_tokens,
+            'observation.language.attention_mask': lang_attention_mask
         }
         
         # 推理计时
         start = time.time()
         output = policy.select_action(batch)
         times.append(time.time() - start)
-        
-        # 保存预测和真实值
-        pred_action = output[0].cpu().numpy()
+        # 检查输出形状
+        if i == 0:
+            print(f"   Output shape: {output.shape}")
+        # output[0] 是 (action_chunk_size, action_dim)，取第一个时间步
+        pred_action = output[0, :].cpu().numpy()  # 形状: (action_dim,)
+        pred_action = output[0, 0].cpu().numpy()  # 只取第一个时间步
         true_action = sample['action'].cpu().numpy()
         
         predictions.append(pred_action)
