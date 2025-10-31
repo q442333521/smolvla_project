@@ -15,7 +15,7 @@ echo "配置:"
 echo "  - 模型类型: smolvla"
 echo "  - 预训练模型: lerobot/smolvla_base"
 echo "  - 数据集: lerobot/svla_so100_pickplace"  
-echo "  - 批量大小: 4"
+echo "  - 批量大小: 8"
 echo "  - 训练步数: 20000"
 echo "  - 输出目录: ${OUTPUT_DIR}"
 echo "==============================================="
@@ -27,7 +27,7 @@ python lerobot/src/lerobot/scripts/lerobot_train.py \
     --policy.pretrained_path=lerobot/smolvla_base \
     --policy.repo_id=local/smolvla_so100_finetuned \
     --dataset.repo_id=lerobot/svla_so100_pickplace \
-    --batch_size=4 \
+    --batch_size=8 \
     --steps=20000 \
     --output_dir=${OUTPUT_DIR} \
     --policy.device=cuda \
