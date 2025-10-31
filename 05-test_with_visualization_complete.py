@@ -83,8 +83,7 @@ with torch.no_grad():
         if i == 0:
             print(f"   Output shape: {output.shape}")
         # output[0] 是 (action_chunk_size, action_dim)，取第一个时间步
-        pred_action = output[0, :].cpu().numpy()  # 形状: (action_dim,)
-        pred_action = output[0, 0].cpu().numpy()  # 只取第一个时间步
+        pred_action = output[0, :2].cpu().numpy()  # 只取前2维匹配PushT  # 形状: (action_dim,)
         true_action = sample['action'].cpu().numpy()
         
         predictions.append(pred_action)
