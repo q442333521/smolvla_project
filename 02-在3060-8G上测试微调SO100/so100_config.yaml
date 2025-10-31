@@ -1,0 +1,42 @@
+# SO100数据集配置 - 图像key映射
+
+dataset:
+  repo_id: lerobot/svla_so100_pickplace
+  
+# 图像key映射：数据集 -> 模型
+image_mapping:
+  observation.images.top: observation.images.camera1
+  observation.images.wrist: observation.images.camera2
+  # camera3复用wrist
+  
+# 策略配置
+policy:
+  path: lerobot/smolvla_base
+  repo_id: local/smolvla_so100_finetuned
+  push_to_hub: false
+  device: cuda
+  
+  # 输入特征映射
+  input_features:
+    observation.images.camera1:
+      type: VISUAL
+      shape: [3, 256, 256]
+    observation.images.camera2:
+      type: VISUAL  
+      shape: [3, 256, 256]
+    observation.images.camera3:
+      type: VISUAL
+      shape: [3, 256, 256]
+    observation.state:
+      type: STATE
+      shape: [6]
+
+# 训练配置
+batch_size: 4
+steps: 20000
+save_freq: 2000
+log_freq: 100
+
+# 其他配置
+wandb:
+  enable: false
