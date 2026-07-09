@@ -4,6 +4,13 @@ Public support repository for SmolVLA, LeRobot datasets, and SO-100/SO100-style 
 
 This repository is a public learning and engineering evidence entry for the SO101 / Pi0.5 / Evo-RL interview project line. It is not a packaged product and it does not contain private robot logs, credentials, or production deployment configuration.
 
+## Portfolio / Interview Context
+
+- Portfolio overview: https://notion.l2k.tech:28443/article/interview-portfolio
+- P03 project page: https://notion.l2k.tech:28443/api/report-media/server-upload/notionnext-videos/interview-portfolio/20260708/project-homepages/p03-so101-evorl/index.html
+
+This repository is the public support entry for the P03 SO101 / Evo-RL project line. It is suitable for discussing SmolVLA and LeRobot dataset practice; private robot safety gates, real hardware logs, dashboards, checkpoints, unpublished datasets, credentials, and unredacted camera data remain outside this public repository.
+
 ## What This Repo Contains
 
 The repository records a practical path for testing SmolVLA-related workflows:
